@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ImpactResultMeta",
+  "type": "object",
+  "required": [
+    "result_type",
+    "crs",
+    "class_thresholds",
+    "files"
+  ],
+  "properties": {
+    "result_type": {
+      "enum": [
+        "grid"
+      ]
+    },
+    "crs": {
+      "type": "string"
+    },
+    "class_thresholds": {
+      "type": "object",
+      "required": [
+        "low",
+        "high"
+      ],
+      "properties": {
+        "low": {
+          "type": "number"
+        },
+        "high": {
+          "type": "number"
+        }
+      }
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "kind",
+          "url"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "csv",
+              "geojson"
+            ]
+          },
+          "url": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
