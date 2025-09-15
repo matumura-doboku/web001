@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "JobSpec",
+  "type": "object",
+  "required": [
+    "aoi",
+    "metric",
+    "grid_size",
+    "thresholds",
+    "crs",
+    "schema_version"
+  ],
+  "properties": {
+    "aoi": {
+      "type": "object"
+    },
+    "metric": {
+      "type": "string"
+    },
+    "grid_size": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "thresholds": {
+      "type": "object",
+      "required": [
+        "low",
+        "high"
+      ],
+      "properties": {
+        "low": {
+          "type": "number"
+        },
+        "high": {
+          "type": "number"
+        }
+      }
+    },
+    "crs": {
+      "type": "string",
+      "pattern": "^EPSG:\\d+$"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  }
+}
