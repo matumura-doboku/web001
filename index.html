@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>影響計算システム</title>
+  <link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel="stylesheet"/>
+  <link href="css/style.css" rel="stylesheet"/>
+  <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
+</head>
+<body class="h-screen flex">
+  <div id="left-panel" class="left">
+    <nav class="nav mb-4">
+      <button class="nav-btn" data-page="home">ホーム</button>
+      <button class="nav-btn active" data-page="calc">計算</button>
+      <button class="nav-btn" data-page="history">履歴</button>
+      <button class="nav-btn" data-page="report">レポート</button>
+    </nav>
+    <div class="input-group mb-4">
+      <label for="startTime">対象開始時間</label>
+      <input id="startTime" type="datetime-local" class="w-full mb-2"/>
+      <label for="endTime">対象終了時間</label>
+      <input id="endTime" type="datetime-local" class="w-full"/>
+    </div>
+    <div id="control-buttons" class="flex-col gap-2">
+      <button id="aoiToggle" class="btn-toggle" type="button">範囲</button>
+      <button id="closureToggle" class="btn-toggle" type="button">通行止め</button>
+      <button id="gridToggle" class="btn-toggle" type="button">グリッド</button>
+      <button id="buildingToggle" class="btn-toggle" type="button">建物</button>
+      <button id="runCalc" class="btn-action" type="button">計算実行</button>
+    </div>
+    <div id="legend" class="legend mt-4"></div>
+    <div id="credits" class="credits mt-4"></div>
+  </div>
+  <div id="map-container" class="map-wrap">
+    <div id="map" class="map"></div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
